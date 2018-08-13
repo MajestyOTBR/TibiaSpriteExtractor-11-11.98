@@ -1,0 +1,15 @@
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\tibiaExtractor.exe.config
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\tibiaExtractor.exe
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\tibiaExtractor.pdb
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\tibiaExtractor.xml
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\Newtonsoft.Json.dll
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\SevenZip.dll
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\Newtonsoft.Json.xml
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\obj\Release\tibiaExtractor.vbprojResolveAssemblyReference.cache
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\obj\Release\tibiaExtractor.Form1.resources
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\obj\Release\tibiaExtractor.Resources.resources
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\obj\Release\tibiaExtractor.vbproj.GenerateResource.Cache
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\obj\Release\tibiaExtractor.vbproj.CoreCompileInputs.cache
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\obj\Release\tibiaExtractor.exe
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\obj\Release\tibiaExtractor.xml
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\obj\Release\tibiaExtractor.pdb
