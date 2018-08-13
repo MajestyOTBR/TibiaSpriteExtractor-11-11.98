@@ -5,6 +5,6 @@ credit to ottols for the spr functions <3
 https://github.com/ottools/open-tibia
 
 
-[IMG]http://i64.tinypic.com/fwhibn.png[/IMG]
+http://i64.tinypic.com/fwhibn.png
 todo:
 adding config for dynamic loading of clients
