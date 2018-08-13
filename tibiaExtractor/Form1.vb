@@ -4,6 +4,7 @@ Imports System.Diagnostics
 Imports System.Drawing
 Imports System.Drawing.Imaging
 Imports System.IO
+Imports System.Text
 Imports System.Threading
 Imports OpenTibia
 
@@ -11,8 +12,9 @@ Imports OpenTibia
 Public Class Form1
     Public Shared spritelist As New List(Of Image)
     Public Shared counter As Integer
+    Public Shared clientinfo As String()
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        PopulateListbox()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -39,6 +41,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+
         Label2.Text = "Creating a spr file from extracted sheets"
         If TextBox2.Text = Nothing Then
             Throw New Exception("check that extract folder contains sheets(bmp) and extract textbox is not empty!")
@@ -76,6 +79,33 @@ Public Class Form1
             osprite.AddSprite(spr)
         Next
         Dim ver As Core.Version = New OpenTibia.Core.Version(1079, "Client 10.79", &H3A71, &H59E48E02, 0)
-        osprite.Save(TextBox2.Text + "\" + TextBox3.Text + ".spr", ver)
+        osprite.Save(TextBox2.Text + "\Tibia.spr", ver)
     End Sub
+
+    Private Sub PopulateListbox()
+        Dim reader As StreamReader = My.Computer.FileSystem.OpenTextFileReader(CurDir() + "\clients.txt", Encoding.Default)
+        Dim a As String
+        Do While reader.Peek >= 0
+            a = reader.ReadLine
+            ListBox1.Items.Add(a)
+        Loop
+        reader.Close()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        If FolderBrowserDialog1.ShowDialog() = DialogResult.OK Then
+            TextBox4.Text = FolderBrowserDialog1.SelectedPath
+        End If
+    End Sub
+
+    Private Function returnselectedVers() As String()
+
+        If CheckBox1.Checked = True Then
+            ListBox1.Enabled = False
+
+        Else
+            ListBox1.Enabled = True
+        End If
+        Return clientinfo
+    End Function
 End Class

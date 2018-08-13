@@ -33,9 +33,10 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -58,7 +59,7 @@ Partial Class Form1
         '
         Me.Button1.Location = New System.Drawing.Point(423, 24)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(103, 23)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "Assetfolder"
         Me.Button1.UseVisualStyleBackColor = True
@@ -67,22 +68,22 @@ Partial Class Form1
         '
         Me.Button2.Location = New System.Drawing.Point(423, 59)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.Size = New System.Drawing.Size(103, 23)
         Me.Button2.TabIndex = 3
         Me.Button2.Text = "Extractfolder"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 311)
+        Me.ProgressBar1.Location = New System.Drawing.Point(12, 336)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(467, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(495, 23)
         Me.ProgressBar1.TabIndex = 4
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 292)
+        Me.Label1.Location = New System.Drawing.Point(12, 320)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(38, 13)
         Me.Label1.TabIndex = 5
@@ -92,7 +93,7 @@ Partial Class Form1
         '
         Me.Button3.Location = New System.Drawing.Point(423, 88)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.Size = New System.Drawing.Size(103, 23)
         Me.Button3.TabIndex = 6
         Me.Button3.Text = "Extract"
         Me.Button3.UseVisualStyleBackColor = True
@@ -100,7 +101,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(481, 321)
+        Me.Label2.Location = New System.Drawing.Point(509, 346)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(15, 13)
         Me.Label2.TabIndex = 7
@@ -108,9 +109,9 @@ Partial Class Form1
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(421, 199)
+        Me.Button4.Location = New System.Drawing.Point(423, 294)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.Size = New System.Drawing.Size(103, 23)
         Me.Button4.TabIndex = 8
         Me.Button4.Text = "Create spr"
         Me.Button4.UseVisualStyleBackColor = True
@@ -118,44 +119,56 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(9, 98)
+        Me.Label3.Location = New System.Drawing.Point(9, 170)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(202, 13)
+        Me.Label3.Size = New System.Drawing.Size(214, 13)
         Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Select tibia version to create the sprite for"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(12, 255)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(146, 20)
-        Me.TextBox3.TabIndex = 11
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(15, 236)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(50, 13)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "spr name"
+        Me.Label3.Text = "Or select tibia version to create the sprite for"
         '
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(12, 115)
+        Me.ListBox1.HorizontalScrollbar = True
+        Me.ListBox1.Location = New System.Drawing.Point(12, 196)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(405, 108)
+        Me.ListBox1.Size = New System.Drawing.Size(405, 121)
         Me.ListBox1.TabIndex = 13
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(12, 124)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(405, 20)
+        Me.TextBox4.TabIndex = 14
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(423, 121)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(103, 23)
+        Me.Button5.TabIndex = 15
+        Me.Button5.Text = "load tibia client"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(12, 150)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(141, 17)
+        Me.CheckBox1.TabIndex = 16
+        Me.CheckBox1.Text = "Select loaded tibia client"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(508, 346)
+        Me.ClientSize = New System.Drawing.Size(538, 368)
+        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Label2)
@@ -184,7 +197,8 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Button4 As Button
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Button5 As Button
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

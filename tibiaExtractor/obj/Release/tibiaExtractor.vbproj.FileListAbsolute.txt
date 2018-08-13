@@ -18,3 +18,4 @@ C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.9
 C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\netstandard.dll
 C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\OpenTibia.pdb
 C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\7zip.pdb
+C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaSpriteExtractor-11-11.98\tibiaExtractor\bin\Release\clients.txt
