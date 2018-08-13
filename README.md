@@ -5,6 +5,7 @@ credit to ottols for the spr functions <3
 https://github.com/ottools/open-tibia
 
 
-http://i64.tinypic.com/fwhibn.png
+<a href="http://sv.tinypic.com?ref=fwhibn" target="_blank"><img src="http://i64.tinypic.com/fwhibn.png" border="0" alt="Image and video hosting by TinyPic"></a>
+
 todo:
 adding config for dynamic loading of clients
