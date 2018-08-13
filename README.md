@@ -10,10 +10,12 @@ https://github.com/ottools/open-tibia
 
 done
 ///////////////////
+
 [X] extract spritsheets to bmp
 [0] semi done spr,data version selecting but its not finished so dont create a sprite just yet
 todo:
 /////////////////
+
 adding config for dynamic loading of clients
 as of now it just saves as bleh old client , needs adjustment and correct path selecting and folder select on tibia client and spr files
 
