@@ -5,7 +5,7 @@ credit to ottols for the spr functions <3
 https://github.com/ottools/open-tibia
 
 
-<a href="http://sv.tinypic.com?ref=fwhibn" target="_blank"><img src="http://i64.tinypic.com/fwhibn.png" border="0" alt="Image and video hosting by TinyPic"></a>
+<a href="http://sv.tinypic.com?ref=1zznecw" target="_blank"><img src="http://i67.tinypic.com/1zznecw.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
 
 
 done
