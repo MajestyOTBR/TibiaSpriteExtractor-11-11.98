@@ -13,7 +13,7 @@ done
 
 [X] extract spritsheets to bmp
 
-[0] semi done spr,data version selecting but its not finished so dont create a sprite just yet
+[0] semi done spr,data version selecting but its not finished so dont create a spr file just yet
 
 todo:
 /////////////////
