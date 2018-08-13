@@ -9,3 +9,4 @@ https://github.com/ottools/open-tibia
 
 todo:
 adding config for dynamic loading of clients
+as of now it just saves as bleh old client , needs adjustment and folder select on tibia client
