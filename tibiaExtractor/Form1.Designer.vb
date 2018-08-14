@@ -34,9 +34,10 @@ Partial Class Form1
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -121,9 +122,9 @@ Partial Class Form1
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(9, 170)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(214, 13)
+        Me.Label3.Size = New System.Drawing.Size(202, 13)
         Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Or select tibia version to create the sprite for"
+        Me.Label3.Text = "Select tibia version to create the sprite for"
         '
         'ListBox1
         '
@@ -134,40 +135,43 @@ Partial Class Form1
         Me.ListBox1.Size = New System.Drawing.Size(405, 121)
         Me.ListBox1.TabIndex = 13
         '
-        'TextBox4
+        'Label4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(12, 124)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(405, 20)
-        Me.TextBox4.TabIndex = 14
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(9, 131)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(100, 13)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "select spr file to edit"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(12, 147)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(405, 20)
+        Me.TextBox3.TabIndex = 15
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(423, 121)
+        Me.Button5.Location = New System.Drawing.Point(423, 143)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(103, 23)
-        Me.Button5.TabIndex = 15
-        Me.Button5.Text = "load tibia client"
+        Me.Button5.TabIndex = 16
+        Me.Button5.Text = "select spr"
         Me.Button5.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'OpenFileDialog1
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(12, 150)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(141, 17)
-        Me.CheckBox1.TabIndex = 16
-        Me.CheckBox1.Text = "Select loaded tibia client"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(538, 368)
-        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button4)
@@ -198,7 +202,8 @@ Partial Class Form1
     Friend WithEvents Button4 As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Button5 As Button
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

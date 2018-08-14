@@ -1,6 +1,6 @@
 ﻿Imports System
 
-Public Class tile
+Public Class Tile
     Public Shared filename As String 'this is for naming our folder with corresponding spritesheet name
     Public Shared path As String 'uh just incase
     Public Sub New(sfilename As String, filepath As String)
@@ -16,6 +16,7 @@ Public Class tile
             Dim sprite = GetSprite(spritesheet, si, i)
             Return sprite
         Next
+        Return Nothing
     End Function
 
 
