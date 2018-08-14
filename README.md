@@ -5,7 +5,7 @@ credit to ottols for the spr functions <3
 https://github.com/ottools/open-tibia
 
 
-<a href="http://sv.tinypic.com?ref=fwhibn" target="_blank"><img src="http://i64.tinypic.com/fwhibn.png" border="0" alt="Image and video hosting by TinyPic"></a>
+<a href="http://sv.tinypic.com?ref=1zznecw" target="_blank"><img src="http://i67.tinypic.com/1zznecw.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
 
 
 done
@@ -24,3 +24,5 @@ as of now it just saves as bleh old client , needs adjustment and correct path s
 
 
 .dat file we need to do aswell :)
+
+gonna create a c++ version to just for the fact that its needed not all c++ dev knows net and def not vb^^ vb its a ..dying language xd 
