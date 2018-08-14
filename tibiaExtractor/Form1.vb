@@ -89,7 +89,7 @@ Public Class Form1
         versionstorage.Load(CurDir() + "\clients.xml")
 
         Dim ver As Core.Version = New OpenTibia.Core.Version(version, clientname, dat, spri, otb)
-        Dim osprite As OpenTibia.Client.Sprites.SpriteStorage = Client.Sprites.SpriteStorage.Load(TextBox3.Text, ver)
+        Dim osprite As OpenTibia.Client.Sprites.SpriteStorage = Client.Sprites.SpriteStorage.Load(TextBox3.Text, ver) ''gotta fix this so versions matches
         'Dim osprite As OpenTibia.Client.Sprites.SpriteStorage = Client.Sprites.SpriteStorage.Create(ver)
 
         For i As Integer = 0 To spritelist.Count - 1
