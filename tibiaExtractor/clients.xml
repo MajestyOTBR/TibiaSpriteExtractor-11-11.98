@@ -57,5 +57,6 @@
 		<client version="1100" description="Client 11.00" otbversion="62" datsignature="4688" sprsignature="58F9D570"/>
 		<client version="1103" description="Client 11.03" otbversion="63" datsignature="4505" sprsignature="585CD11D"/>
 		<client version="1132" description="Client 11.32" otbversion="59" datsignature="483C" sprsignature="595B69B2"/>
-		<client version="1146" description="Client 11.46" otbversion="60" datsignature="4956" sprsignature="59A5492C"/>		
-	</clients>
+		<client version="1146" description="Client 11.46" otbversion="60" datsignature="4956" sprsignature="59A5492C"/>
+    <client version="1000" description="Client 10.00" otbversion="60" datsignature="4A10" sprsignature="59E48E02"/>
+  </clients>

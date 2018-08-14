@@ -58,7 +58,7 @@
       <HintPath>..\..\Tibia11Editor-master\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="OpenTibia">
-      <HintPath>..\..\WindowsApp1\open-tibia-master\OpenTibia\bin\Release\OpenTibia.dll</HintPath>
+      <HintPath>..\..\open-tibia-master\OpenTibia\bin\Release\OpenTibia.dll</HintPath>
     </Reference>
     <Reference Include="SevenZip">
       <HintPath>..\..\WindowsApp1\packages\SevenZip.4.12.1\lib\net20\SevenZip.dll</HintPath>

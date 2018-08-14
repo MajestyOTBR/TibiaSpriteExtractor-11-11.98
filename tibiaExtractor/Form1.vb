@@ -35,6 +35,7 @@ Public Class Form1
         Dim work = New worker(ProgressBar1, TextBox1, TextBox2, Label1, Label2)
         Dim thread As New Thread(AddressOf work.Start)
         thread.Start()
+
     End Sub
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -42,7 +43,9 @@ Public Class Form1
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
+        If IsNothing(ListBox1.SelectedItem) Then
+            Throw New Exception("select a tibia version")
+        End If
         Label2.Text = "Creating a spr file from extracted sheets"
         If TextBox2.Text = Nothing Then
             Throw New Exception("check that extract folder contains sheets(bmp) and extract textbox is not empty!")
@@ -62,6 +65,7 @@ Public Class Form1
                 Label2.Text = ProgressBar1.Value
             Next
             Createsprfile()
+
         Catch ex As Exception
             Label1.Text = ex.Message
         End Try
@@ -71,7 +75,7 @@ Public Class Form1
 
     Private Sub Createsprfile()
         If selectedclient = Nothing Then
-            Throw New Exception("you need to select a client")
+            Throw New Exception("you need to select a client both for loading and saving")
         End If
 
         Dim Nodes As XmlNode = xmldoc.SelectSingleNode("/clients")
@@ -89,8 +93,9 @@ Public Class Form1
         versionstorage.Load(CurDir() + "\clients.xml")
 
         Dim ver As Core.Version = New OpenTibia.Core.Version(version, clientname, dat, spri, otb)
-        Dim osprite As OpenTibia.Client.Sprites.SpriteStorage = Client.Sprites.SpriteStorage.Load(TextBox3.Text, ver) ''gotta fix this so versions matches
-        'Dim osprite As OpenTibia.Client.Sprites.SpriteStorage = Client.Sprites.SpriteStorage.Create(ver)
+
+        Dim osprite As OpenTibia.Client.Sprites.SpriteStorage = Client.Sprites.SpriteStorage.Load(TextBox3.Text, ver)
+        osprite.Version = ver
 
         For i As Integer = 0 To spritelist.Count - 1
             Dim spr As Client.Sprites.Sprite = New Client.Sprites.Sprite()
@@ -99,6 +104,7 @@ Public Class Form1
         Next
 
         osprite.Save(TextBox2.Text + "\Tibia.spr", ver)
+
     End Sub
 
     Private Sub PopulateListbox()
@@ -119,6 +125,10 @@ Public Class Form1
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        If IsNothing(ListBox1.SelectedItem) Then
+            Throw New Exception("select a tibia version")
+        End If
+
         If OpenFileDialog1.ShowDialog = DialogResult.OK Then
             TextBox3.Text = OpenFileDialog1.FileName
         End If

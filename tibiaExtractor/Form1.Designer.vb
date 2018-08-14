@@ -67,7 +67,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(423, 59)
+        Me.Button2.Location = New System.Drawing.Point(423, 62)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(103, 23)
         Me.Button2.TabIndex = 3
@@ -76,7 +76,7 @@ Partial Class Form1
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 336)
+        Me.ProgressBar1.Location = New System.Drawing.Point(9, 413)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(495, 23)
         Me.ProgressBar1.TabIndex = 4
@@ -84,7 +84,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 320)
+        Me.Label1.Location = New System.Drawing.Point(9, 397)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(38, 13)
         Me.Label1.TabIndex = 5
@@ -92,7 +92,7 @@ Partial Class Form1
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(423, 88)
+        Me.Button3.Location = New System.Drawing.Point(423, 98)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(103, 23)
         Me.Button3.TabIndex = 6
@@ -102,7 +102,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(509, 346)
+        Me.Label2.Location = New System.Drawing.Point(506, 423)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(15, 13)
         Me.Label2.TabIndex = 7
@@ -110,7 +110,7 @@ Partial Class Form1
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(423, 294)
+        Me.Button4.Location = New System.Drawing.Point(423, 374)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(103, 23)
         Me.Button4.TabIndex = 8
@@ -120,25 +120,27 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(9, 170)
+        Me.Label3.Location = New System.Drawing.Point(12, 120)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(202, 13)
+        Me.Label3.Size = New System.Drawing.Size(292, 39)
         Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Select tibia version to create the sprite for"
+        Me.Label3.Text = "Select tibia version to create/load the sprite for." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "so if u want to downgrade sp" &
+    "r or upgrade that means," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " u need to select another tibia version before creatin" &
+    "g the file"
         '
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.HorizontalScrollbar = True
-        Me.ListBox1.Location = New System.Drawing.Point(12, 196)
+        Me.ListBox1.Location = New System.Drawing.Point(12, 162)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(405, 121)
+        Me.ListBox1.Size = New System.Drawing.Size(405, 147)
         Me.ListBox1.TabIndex = 13
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 131)
+        Me.Label4.Location = New System.Drawing.Point(9, 322)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(100, 13)
         Me.Label4.TabIndex = 14
@@ -146,14 +148,14 @@ Partial Class Form1
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(12, 147)
+        Me.TextBox3.Location = New System.Drawing.Point(12, 341)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(405, 20)
         Me.TextBox3.TabIndex = 15
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(423, 143)
+        Me.Button5.Location = New System.Drawing.Point(423, 338)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(103, 23)
         Me.Button5.TabIndex = 16
@@ -168,7 +170,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(538, 368)
+        Me.ClientSize = New System.Drawing.Size(538, 443)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label4)
