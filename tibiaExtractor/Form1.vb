@@ -1,10 +1,5 @@
-﻿Imports System
-Imports System.ComponentModel
-Imports System.Diagnostics
-Imports System.Drawing
-Imports System.Drawing.Imaging
+﻿Imports System.ComponentModel
 Imports System.IO
-Imports System.Text
 Imports System.Threading
 Imports System.Xml
 Imports OpenTibia
@@ -133,5 +128,16 @@ Public Class Form1
         If OpenFileDialog1.ShowDialog = DialogResult.OK Then
             TextBox3.Text = OpenFileDialog1.FileName
         End If
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Try
+            Dim db As DatProto = New DatProto()
+            db.Readfile(TextBox1.Text + "\appearances-723b878ed31feb3bb5cd4a31bb314dffdf43fa5532dad1655254f0b426142df4.dat")
+
+        Catch ex As Exception
+            Label1.Text = ex.Message
+        End Try
+
     End Sub
 End Class

@@ -60,13 +60,19 @@
     <Reference Include="OpenTibia">
       <HintPath>..\..\open-tibia-master\OpenTibia\bin\Release\OpenTibia.dll</HintPath>
     </Reference>
+    <Reference Include="protobuf-net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>packages\protobuf-net.2.3.17\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="SevenZip">
       <HintPath>..\..\WindowsApp1\packages\SevenZip.4.12.1\lib\net20\SevenZip.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -110,6 +116,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="DatProto.vb" />
     <Compile Include="tile.vb" />
     <Compile Include="worker.vb" />
   </ItemGroup>
@@ -135,6 +142,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="TibiaExtractor.pfx" />
   </ItemGroup>
   <ItemGroup>

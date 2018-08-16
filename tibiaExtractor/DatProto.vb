@@ -259,12 +259,12 @@ Public Class DatProto
         'Serializer.Serialize(fs, objData) 'saving
 
         ''option 2
-        'Dim objData1 As DatFile = New DatFile()
-        'Serializer.Serialize(fs, objData1) 
+        Dim objData1 As DatFile = New DatFile
+        Serializer.Serialize(fs, objData1)
     End Sub
     Public Sub Readfile(filename As String)
         Dim fs As FileStream = File.Open(filename, FileMode.Open)
-        'Dim rec = Serializer.Deserialize(Of Tibiadat)(fs) 'loading
+        Dim objData1 = Serializer.Deserialize(Of DatFile)(fs) 'loading
 
     End Sub
 End Class
