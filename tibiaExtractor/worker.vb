@@ -5,7 +5,7 @@ Imports System.Drawing
 Imports System.Drawing.Imaging
 Imports System.IO
 Imports SevenZip.Compression.LZMA
-Public Class worker
+Public Class Worker
     Public Shared counter As Integer
     Dim progressbar As ProgressBar
     Dim filelist As String()
