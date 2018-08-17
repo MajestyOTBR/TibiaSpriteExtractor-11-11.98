@@ -39,6 +39,7 @@ Partial Class Form1
         Me.Button5 = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -47,6 +48,7 @@ Partial Class Form1
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(405, 20)
         Me.TextBox1.TabIndex = 0
+        Me.TextBox1.Text = "asset path for collecting dat and lzma files from"
         '
         'TextBox2
         '
@@ -77,7 +79,7 @@ Partial Class Form1
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(9, 413)
+        Me.ProgressBar1.Location = New System.Drawing.Point(12, 475)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(495, 23)
         Me.ProgressBar1.TabIndex = 4
@@ -85,7 +87,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 397)
+        Me.Label1.Location = New System.Drawing.Point(12, 459)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(38, 13)
         Me.Label1.TabIndex = 5
@@ -97,13 +99,13 @@ Partial Class Form1
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(103, 23)
         Me.Button3.TabIndex = 6
-        Me.Button3.Text = "Extract"
+        Me.Button3.Text = "Extract sheets"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(506, 423)
+        Me.Label2.Location = New System.Drawing.Point(509, 485)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(15, 13)
         Me.Label2.TabIndex = 7
@@ -111,7 +113,7 @@ Partial Class Form1
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(423, 374)
+        Me.Button4.Location = New System.Drawing.Point(423, 367)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(103, 23)
         Me.Button4.TabIndex = 8
@@ -169,18 +171,28 @@ Partial Class Form1
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(423, 136)
+        Me.Button6.Location = New System.Drawing.Point(423, 398)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(103, 23)
         Me.Button6.TabIndex = 17
         Me.Button6.Text = "LoadDat"
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(12, 398)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(24, 13)
+        Me.Label5.TabIndex = 18
+        Me.Label5.Text = "Dat"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(538, 443)
+        Me.ClientSize = New System.Drawing.Size(538, 510)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.TextBox3)
@@ -220,4 +232,5 @@ Partial Class Form1
     Friend WithEvents Button5 As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Button6 As Button
+    Friend WithEvents Label5 As Label
 End Class

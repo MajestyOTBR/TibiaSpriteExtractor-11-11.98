@@ -140,10 +140,14 @@ Public Class Form1
                     Dim dbs As Datfiles = New Datfiles()
                     db = dbs.Readfile(TextBox1.Text + "\" + finfo.Name)
                 End If
+
             Next
 
-
-            MessageBox.Show("we have " + db.Outfits.Count.ToString + " outfits")
+            Dim ou = "we have " + db.Outfits.Count.ToString + " outfits," + vbNewLine
+            Dim ef = "we have " + db.Effects.Count.ToString + " effects," + vbNewLine
+            Dim ob = "we have " + db.Objects.Count.ToString + " objects," + vbNewLine
+            Dim mi = "we have " + db.Missiles.Count.ToString + " missiles"
+            Label5.Text = ou + ef + ob + mi
         Catch ex As Exception
             MessageBox.Show(ex.StackTrace)
             Label1.Text = ex.Message
