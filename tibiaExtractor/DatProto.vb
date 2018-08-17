@@ -6,7 +6,6 @@ Imports ProtoBuf
 ' Input: my.proto
 
 #Disable Warning BC40008, BC40055, IDE1006
-
 <Global.ProtoBuf.ProtoContract()>
 Partial Public Class Attributes
     Implements Global.ProtoBuf.IExtensible
@@ -512,6 +511,49 @@ Partial Public Class Attributes
     End Sub
     Private __pbn__Topeffect As Boolean?
 
+    <Global.ProtoBuf.ProtoMember(40, Name:="npcTradeData")>
+    Public ReadOnly Property npcTradeDatas As New Global.System.Collections.Generic.List(Of AppearanceFlagNPC)
+
+    <Global.ProtoBuf.ProtoMember(41)>
+    Public Property changedToExpire As AppearanceFlagChangedToExpire
+
+    <Global.ProtoBuf.ProtoMember(42, Name:="corpse")>
+    Public Property Corpse As Boolean
+        Get
+            Return __pbn__Corpse.GetValueOrDefault()
+        End Get
+        Set(ByVal value As Boolean)
+            __pbn__Corpse = value
+        End Set
+    End Property
+    Public Function ShouldSerializeCorpse() As Boolean
+        Return Not (__pbn__Corpse Is Nothing)
+    End Function
+    Public Sub ResetCorpse()
+        __pbn__Corpse = Nothing
+    End Sub
+    Private __pbn__Corpse As Boolean?
+
+    <Global.ProtoBuf.ProtoMember(43)>
+    Public Property playeCorpse As Boolean
+        Get
+            Return __pbn__playeCorpse.GetValueOrDefault()
+        End Get
+        Set(ByVal value As Boolean)
+            __pbn__playeCorpse = value
+        End Set
+    End Property
+    Public Function ShouldSerializeplayeCorpse() As Boolean
+        Return Not (__pbn__playeCorpse Is Nothing)
+    End Function
+    Public Sub ResetplayeCorpse()
+        __pbn__playeCorpse = Nothing
+    End Sub
+    Private __pbn__playeCorpse As Boolean?
+
+    <Global.ProtoBuf.ProtoMember(44)>
+    Public Property cyclopediaItem As AppearanceFlagCyclopedia
+
     <Global.ProtoBuf.ProtoContract()>
     Partial Public Class Ground
         Implements Global.ProtoBuf.IExtensible
@@ -715,26 +757,64 @@ Partial Public Class Attributes
             Return Global.ProtoBuf.Extensible.GetExtensionObject(__pbn__extensionData, createIfMissing)
         End Function
 
-        <Global.ProtoBuf.ProtoMember(1, Name:="category", IsRequired:=True)>
+        <Global.ProtoBuf.ProtoMember(1, Name:="category")>
         Public Property Category As UInteger
+            Get
+                Return __pbn__Category.GetValueOrDefault()
+            End Get
+            Set(ByVal value As UInteger)
+                __pbn__Category = value
+            End Set
+        End Property
+        Public Function ShouldSerializeCategory() As Boolean
+            Return Not (__pbn__Category Is Nothing)
+        End Function
+        Public Sub ResetCategory()
+            __pbn__Category = Nothing
+        End Sub
+        Private __pbn__Category As UInteger?
 
-        <Global.ProtoBuf.ProtoMember(2, IsRequired:=True)>
+        <Global.ProtoBuf.ProtoMember(2)>
         Public Property tradeAs As UInteger
+            Get
+                Return __pbn__tradeAs.GetValueOrDefault()
+            End Get
+            Set(ByVal value As UInteger)
+                __pbn__tradeAs = value
+            End Set
+        End Property
+        Public Function ShouldSerializetradeAs() As Boolean
+            Return Not (__pbn__tradeAs Is Nothing)
+        End Function
+        Public Sub ResettradeAs()
+            __pbn__tradeAs = Nothing
+        End Sub
+        Private __pbn__tradeAs As UInteger?
 
-        <Global.ProtoBuf.ProtoMember(3, IsRequired:=True)>
-        Public Property showAs As UInteger
-
-        <Global.ProtoBuf.ProtoMember(4, Name:="name", IsRequired:=True)>
-        Public Property Name As String
+        <Global.ProtoBuf.ProtoMember(3, Name:="show_as_object_id")>
+        Public Property ShowAsObjectId As UInteger
+            Get
+                Return __pbn__ShowAsObjectId.GetValueOrDefault()
+            End Get
+            Set(ByVal value As UInteger)
+                __pbn__ShowAsObjectId = value
+            End Set
+        End Property
+        Public Function ShouldSerializeShowAsObjectId() As Boolean
+            Return Not (__pbn__ShowAsObjectId Is Nothing)
+        End Function
+        Public Sub ResetShowAsObjectId()
+            __pbn__ShowAsObjectId = Nothing
+        End Sub
+        Private __pbn__ShowAsObjectId As UInteger?
 
         <Global.ProtoBuf.ProtoMember(5, Name:="vocation")>
         Public Property Vocations As UInteger()
 
         <Global.ProtoBuf.ProtoMember(6, Name:="level")>
-        <Global.System.ComponentModel.DefaultValue(0UI)>
         Public Property Level As UInteger
             Get
-                Return If(__pbn__Level, 0UI)
+                Return __pbn__Level.GetValueOrDefault()
             End Get
             Set(ByVal value As UInteger)
                 __pbn__Level = value
@@ -747,6 +827,146 @@ Partial Public Class Attributes
             __pbn__Level = Nothing
         End Sub
         Private __pbn__Level As UInteger?
+
+    End Class
+
+    <Global.ProtoBuf.ProtoContract()>
+    Partial Public Class AppearanceFlagNPC
+        Implements Global.ProtoBuf.IExtensible
+
+        Private __pbn__extensionData As Global.ProtoBuf.IExtension
+
+        Private Function GetExtensionObject(ByVal createIfMissing As Boolean) As Global.ProtoBuf.IExtension Implements Global.ProtoBuf.IExtensible.GetExtensionObject
+            Return Global.ProtoBuf.Extensible.GetExtensionObject(__pbn__extensionData, createIfMissing)
+        End Function
+
+        <Global.ProtoBuf.ProtoMember(1, Name:="name")>
+        <Global.System.ComponentModel.DefaultValue("")>
+        Public Property Name As String
+            Get
+                Return If(__pbn__Name, "")
+            End Get
+            Set(ByVal value As String)
+                __pbn__Name = value
+            End Set
+        End Property
+        Public Function ShouldSerializeName() As Boolean
+            Return Not (__pbn__Name Is Nothing)
+        End Function
+        Public Sub ResetName()
+            __pbn__Name = Nothing
+        End Sub
+        Private __pbn__Name As String
+
+        <Global.ProtoBuf.ProtoMember(2, Name:="location")>
+        <Global.System.ComponentModel.DefaultValue("")>
+        Public Property Location As String
+            Get
+                Return If(__pbn__Location, "")
+            End Get
+            Set(ByVal value As String)
+                __pbn__Location = value
+            End Set
+        End Property
+        Public Function ShouldSerializeLocation() As Boolean
+            Return Not (__pbn__Location Is Nothing)
+        End Function
+        Public Sub ResetLocation()
+            __pbn__Location = Nothing
+        End Sub
+        Private __pbn__Location As String
+
+        <Global.ProtoBuf.ProtoMember(3)>
+        Public Property sellPrice As UInteger
+            Get
+                Return __pbn__sellPrice.GetValueOrDefault()
+            End Get
+            Set(ByVal value As UInteger)
+                __pbn__sellPrice = value
+            End Set
+        End Property
+        Public Function ShouldSerializesellPrice() As Boolean
+            Return Not (__pbn__sellPrice Is Nothing)
+        End Function
+        Public Sub ResetsellPrice()
+            __pbn__sellPrice = Nothing
+        End Sub
+        Private __pbn__sellPrice As UInteger?
+
+        <Global.ProtoBuf.ProtoMember(4)>
+        Public Property buyPrice As UInteger
+            Get
+                Return __pbn__buyPrice.GetValueOrDefault()
+            End Get
+            Set(ByVal value As UInteger)
+                __pbn__buyPrice = value
+            End Set
+        End Property
+        Public Function ShouldSerializebuyPrice() As Boolean
+            Return Not (__pbn__buyPrice Is Nothing)
+        End Function
+        Public Sub ResetbuyPrice()
+            __pbn__buyPrice = Nothing
+        End Sub
+        Private __pbn__buyPrice As UInteger?
+
+    End Class
+
+    <Global.ProtoBuf.ProtoContract()>
+    Partial Public Class AppearanceFlagChangedToExpire
+        Implements Global.ProtoBuf.IExtensible
+
+        Private __pbn__extensionData As Global.ProtoBuf.IExtension
+
+        Private Function GetExtensionObject(ByVal createIfMissing As Boolean) As Global.ProtoBuf.IExtension Implements Global.ProtoBuf.IExtensible.GetExtensionObject
+            Return Global.ProtoBuf.Extensible.GetExtensionObject(__pbn__extensionData, createIfMissing)
+        End Function
+
+        <Global.ProtoBuf.ProtoMember(1)>
+        Public Property formerObjectTypeId As UInteger
+            Get
+                Return __pbn__formerObjectTypeId.GetValueOrDefault()
+            End Get
+            Set(ByVal value As UInteger)
+                __pbn__formerObjectTypeId = value
+            End Set
+        End Property
+        Public Function ShouldSerializeformerObjectTypeId() As Boolean
+            Return Not (__pbn__formerObjectTypeId Is Nothing)
+        End Function
+        Public Sub ResetformerObjectTypeId()
+            __pbn__formerObjectTypeId = Nothing
+        End Sub
+        Private __pbn__formerObjectTypeId As UInteger?
+
+    End Class
+
+    <Global.ProtoBuf.ProtoContract()>
+    Partial Public Class AppearanceFlagCyclopedia
+        Implements Global.ProtoBuf.IExtensible
+
+        Private __pbn__extensionData As Global.ProtoBuf.IExtension
+
+        Private Function GetExtensionObject(ByVal createIfMissing As Boolean) As Global.ProtoBuf.IExtension Implements Global.ProtoBuf.IExtensible.GetExtensionObject
+            Return Global.ProtoBuf.Extensible.GetExtensionObject(__pbn__extensionData, createIfMissing)
+        End Function
+
+        <Global.ProtoBuf.ProtoMember(1)>
+        Public Property cyclopediaType As UInteger
+            Get
+                Return __pbn__cyclopediaType.GetValueOrDefault()
+            End Get
+            Set(ByVal value As UInteger)
+                __pbn__cyclopediaType = value
+            End Set
+        End Property
+        Public Function ShouldSerializecyclopediaType() As Boolean
+            Return Not (__pbn__cyclopediaType Is Nothing)
+        End Function
+        Public Sub ResetcyclopediaType()
+            __pbn__cyclopediaType = Nothing
+        End Sub
+        Private __pbn__cyclopediaType As UInteger?
 
     End Class
 
@@ -1018,7 +1238,105 @@ Partial Public Class DatFile
 
 End Class
 
+<Global.ProtoBuf.ProtoContract(Name:="PLAYER_ACTION")>
+Public Enum PlayerAction
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_ACTION_NONE")>
+    PlayerActionNone = 0
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_ACTION_LOOK")>
+    PlayerActionLook = 1
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_ACTION_USE")>
+    PlayerActionUse = 2
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_ACTION_OPEN")>
+    PlayerActionOpen = 3
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_ACTION_AUTOWALK_HIGHLIGHT")>
+    PlayerActionAutowalkHighlight = 4
+End Enum
 
+<Global.ProtoBuf.ProtoContract(Name:="ITEM_CATEGORY")>
+Public Enum ItemCategory
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_ARMORS")>
+    ItemCategoryArmors = 1
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_AMULETS")>
+    ItemCategoryAmulets = 2
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_BOOTS")>
+    ItemCategoryBoots = 3
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_CONTAINERS")>
+    ItemCategoryContainers = 4
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_DECORATION")>
+    ItemCategoryDecoration = 5
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_FOOD")>
+    ItemCategoryFood = 6
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_HELMETS_HATS")>
+    ItemCategoryHelmetsHats = 7
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_LEGS")>
+    ItemCategoryLegs = 8
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_OTHERS")>
+    ItemCategoryOthers = 9
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_POTIONS")>
+    ItemCategoryPotions = 10
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_RINGS")>
+    ItemCategoryRings = 11
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_RUNES")>
+    ItemCategoryRunes = 12
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_SHIELDS")>
+    ItemCategoryShields = 13
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_TOOLS")>
+    ItemCategoryTools = 14
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_VALUABLES")>
+    ItemCategoryValuables = 15
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_AMMUNITION")>
+    ItemCategoryAmmunition = 16
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_AXES")>
+    ItemCategoryAxes = 17
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_CLUBS")>
+    ItemCategoryClubs = 18
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_DISTANCE_WEAPONS")>
+    ItemCategoryDistanceWeapons = 19
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_SWORDS")>
+    ItemCategorySwords = 20
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_WANDS_RODS")>
+    ItemCategoryWandsRods = 21
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_PREMIUM_SCROLLS")>
+    ItemCategoryPremiumScrolls = 22
+    <Global.ProtoBuf.ProtoEnum(Name:="ITEM_CATEGORY_TIBIA_COINS")>
+    ItemCategoryTibiaCoins = 23
+End Enum
+
+<Global.ProtoBuf.ProtoContract(Name:="PLAYER_PROFESSION")>
+Public Enum PlayerProfession
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_PROFESSION_ANY")>
+    PlayerProfessionAny = -1
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_PROFESSION_NONE")>
+    PlayerProfessionNone = 0
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_PROFESSION_KNIGHT")>
+    PlayerProfessionKnight = 1
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_PROFESSION_PALADIN")>
+    PlayerProfessionPaladin = 2
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_PROFESSION_SORCERER")>
+    PlayerProfessionSorcerer = 3
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_PROFESSION_DRUID")>
+    PlayerProfessionDruid = 4
+    <Global.ProtoBuf.ProtoEnum(Name:="PLAYER_PROFESSION_PROMOTED")>
+    PlayerProfessionPromoted = 10
+End Enum
+
+<Global.ProtoBuf.ProtoContract(Name:="ANIMATION_LOOP_TYPE")>
+Public Enum AnimationLoopType
+    <Global.ProtoBuf.ProtoEnum(Name:="ANIMATION_LOOP_TYPE_PINGPONG")>
+    AnimationLoopTypePingpong = -1
+    <Global.ProtoBuf.ProtoEnum(Name:="ANIMATION_LOOP_TYPE_INFINITE")>
+    AnimationLoopTypeInfinite = 0
+    <Global.ProtoBuf.ProtoEnum(Name:="ANIMATION_LOOP_TYPE_COUNTED")>
+    AnimationLoopTypeCounted = 1
+End Enum
+
+<Global.ProtoBuf.ProtoContract(Name:="HOOK_TYPE")>
+Public Enum HookType
+    <Global.ProtoBuf.ProtoEnum(Name:="HOOK_TYPE_SOUTH")>
+    HookTypeSouth = 1
+    <Global.ProtoBuf.ProtoEnum(Name:="HOOK_TYPE_EAST")>
+    HookTypeEast = 2
+End Enum
 Class Datfiles
 
     'saving/loading
