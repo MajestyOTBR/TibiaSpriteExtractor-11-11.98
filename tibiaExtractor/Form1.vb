@@ -132,10 +132,20 @@ Public Class Form1
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         Try
-            Dim db As DatProto = New DatProto()
-            db.Readfile(TextBox1.Text + "\appearances-723b878ed31feb3bb5cd4a31bb314dffdf43fa5532dad1655254f0b426142df4.dat")
+            Dim db As DatFile
+            Dim filelist As String() = Directory.GetFiles(TextBox1.Text, "*.dat")
+            For i As Integer = 0 To filelist.Length - 1
+                Dim finfo As FileInfo = New FileInfo(filelist(i))
+                If filelist(i).Contains("appearances-") Then
+                    Dim dbs As Datfiles = New Datfiles()
+                    db = dbs.Readfile(TextBox1.Text + "\" + finfo.Name)
+                End If
+            Next
 
+
+            MessageBox.Show("we have " + db.Outfits.Count.ToString + " outfits")
         Catch ex As Exception
+            MessageBox.Show(ex.StackTrace)
             Label1.Text = ex.Message
         End Try
 
