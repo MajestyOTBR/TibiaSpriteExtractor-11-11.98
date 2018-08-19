@@ -27,3 +27,6 @@ done
 todo:
 convert thoose new dat to older dats or pulling the contents to and old dat for use in older clients?
 
+
+<video width="90%" height="90%" controls autoplay><source src="https://tinytake.s3.amazonaws.com/pulse/ltess748-gmail/attachments/8554724/TinyTake19-08-2018-10-20-09.mp4" type="video/mp4">Your browser does not support the video tag.</video><br /><a href="http://www.tinytake.com" title="Powered by TinyTake Screen Capture">Powered by TinyTake Screen Capture</a>
+
