@@ -14,13 +14,16 @@ https://github.com/ottools/open-tibia
 done
 ///////////////////
 
-[X] extract spritsheets to bmp DONE
+[X] extract spritsheets to bmp  DONE
 
-[X] semi done spr,data version selecting but its not finished so dont create a spr file just yet DONE
+[X] spr,data version selecting  DONE
 
-todo:
+[X] create spr file from spritesheets or add it to existing spr  DONE
+
+[X] proto added to read apperance.dat  DONE
+
 /////////////////
 
-.dat file we need to do aswell :)
+todo:
+convert thoose new dat to older dats or pulling the contents to and old dat for use in older clients?
 
-gonna create a c++ version to just for the fact that its needed not all c++ dev knows net and def not vb^^ vb its a ..dying language xd 
