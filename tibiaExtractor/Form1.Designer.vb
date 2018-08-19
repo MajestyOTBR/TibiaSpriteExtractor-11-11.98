@@ -40,6 +40,7 @@ Partial Class Form1
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -187,11 +188,22 @@ Partial Class Form1
         Me.Label5.TabIndex = 18
         Me.Label5.Text = "Dat"
         '
+        'Button7
+        '
+        Me.Button7.Enabled = False
+        Me.Button7.Location = New System.Drawing.Point(423, 427)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(101, 23)
+        Me.Button7.TabIndex = 19
+        Me.Button7.Text = "LoadOld Dat"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(538, 510)
+        Me.ClientSize = New System.Drawing.Size(535, 510)
+        Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
@@ -233,4 +245,5 @@ Partial Class Form1
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Button6 As Button
     Friend WithEvents Label5 As Label
+    Friend WithEvents Button7 As Button
 End Class

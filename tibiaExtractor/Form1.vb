@@ -39,15 +39,15 @@ Public Class Form1
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         If IsNothing(ListBox1.SelectedItem) Then
-            Throw New Exception("select a tibia version")
+            MessageBox.Show("select a tibia version")
         End If
         Label2.Text = "Creating a spr file from extracted sheets"
         If TextBox2.Text = Nothing Then
-            Throw New Exception("check that extract folder contains sheets(bmp) and extract textbox is not empty!")
+            MessageBox.Show("check that extract folder contains sheets(bmp) and extract textbox is not empty!")
         End If
         Dim filelist As String() = Directory.GetFiles(TextBox2.Text, "*.bmp")
         If filelist.Count() = 0 Then
-            Throw New Exception("theres no files in list! navigate to correct extraction folder")
+            MessageBox.Show("theres no files in list! navigate to correct extraction folder")
         End If
         Try
             For i As Integer = 0 To filelist.Length - 1
@@ -70,7 +70,7 @@ Public Class Form1
 
     Private Sub Createsprfile()
         If selectedclient = Nothing Then
-            Throw New Exception("you need to select a client both for loading and saving")
+            MessageBox.Show("you need to select a client both for loading and saving")
         End If
 
         Dim Nodes As XmlNode = xmldoc.SelectSingleNode("/clients")
@@ -82,7 +82,7 @@ Public Class Form1
         Dim dat As UInteger = CUInt("&H" + Nodes.ChildNodes(selectedclient).Attributes("datsignature").Value)
 
         If TextBox3.Text = Nothing Then
-            Throw New Exception("you need to select a spr file")
+            MessageBox.Show("you need to select a spr file")
         End If
         Dim versionstorage As OpenTibia.Core.VersionStorage = New Core.VersionStorage()
         versionstorage.Load(CurDir() + "\clients.xml")
@@ -122,7 +122,7 @@ Public Class Form1
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         If IsNothing(ListBox1.SelectedItem) Then
-            Throw New Exception("select a tibia version")
+            MessageBox.Show("select a tibia version")
         End If
 
         If OpenFileDialog1.ShowDialog = DialogResult.OK Then
@@ -147,11 +147,17 @@ Public Class Form1
             Dim ef = "we have " + db.Effects.Count.ToString + " effects," + vbNewLine
             Dim ob = "we have " + db.Objects.Count.ToString + " objects," + vbNewLine
             Dim mi = "we have " + db.Missiles.Count.ToString + " missiles"
+
             Label5.Text = ou + ef + ob + mi
         Catch ex As Exception
             MessageBox.Show(ex.StackTrace)
             Label1.Text = ex.Message
         End Try
 
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim od As OldDatfile2 = New OldDatfile2()
+        od.Old_load("Tibia.dat")
     End Sub
 End Class
