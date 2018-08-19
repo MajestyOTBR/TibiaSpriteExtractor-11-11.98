@@ -32,3 +32,6 @@ a video how to do it
 
 https://ltess748-gmail.tinytake.com/sf/Mjg0OTgxOF84NTU0NzI0
 
+[![Watch the video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://tinytake.s3.amazonaws.com/pulse/ltess748-gmail/attachments/8554724/TinyTake19-08-2018-10-20-09.mp4)
+
+
