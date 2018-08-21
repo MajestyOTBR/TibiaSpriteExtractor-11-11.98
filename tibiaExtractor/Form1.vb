@@ -143,7 +143,7 @@ Public Class Form1
         Next
 
         osprite.Save(My.MySettings.Default.ExtractFolder + "\Tibia.spr", ver)
-        odat.Save(My.MySettings.Default.ExtractFolder + "\Tibia.dat", ver)
+        'odat.Save(My.MySettings.Default.ExtractFolder + "\Tibia.dat", ver)
         Label1.Text = "Done"
     End Sub
 

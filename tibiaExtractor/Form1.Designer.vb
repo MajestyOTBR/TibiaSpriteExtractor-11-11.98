@@ -30,12 +30,11 @@ Partial Class Form1
         Me.SliceSpritesheatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BakeASprToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BakeADatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -83,7 +82,7 @@ Partial Class Form1
         '
         'CookingToolStripMenuItem
         '
-        Me.CookingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BakeASprToolStripMenuItem, Me.BakeADatToolStripMenuItem})
+        Me.CookingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BakeASprToolStripMenuItem})
         Me.CookingToolStripMenuItem.Name = "CookingToolStripMenuItem"
         Me.CookingToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
         Me.CookingToolStripMenuItem.Text = "Cooking"
@@ -93,12 +92,6 @@ Partial Class Form1
         Me.BakeASprToolStripMenuItem.Name = "BakeASprToolStripMenuItem"
         Me.BakeASprToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BakeASprToolStripMenuItem.Text = "Bake a spr"
-        '
-        'BakeADatToolStripMenuItem
-        '
-        Me.BakeADatToolStripMenuItem.Name = "BakeADatToolStripMenuItem"
-        Me.BakeADatToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.BakeADatToolStripMenuItem.Text = "Bake a dat"
         '
         'Label1
         '
@@ -128,6 +121,14 @@ Partial Class Form1
         Me.Panel1.TabIndex = 2
         Me.Panel1.Visible = False
         '
+        'ListBox2
+        '
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.Location = New System.Drawing.Point(14, 144)
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.Size = New System.Drawing.Size(196, 56)
+        Me.ListBox2.TabIndex = 3
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(14, 209)
@@ -136,14 +137,6 @@ Partial Class Form1
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "Create Spr"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'ListBox2
-        '
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(14, 144)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(196, 56)
-        Me.ListBox2.TabIndex = 3
         '
         'Form1
         '
@@ -173,7 +166,6 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents CookingToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BakeASprToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents BakeADatToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
