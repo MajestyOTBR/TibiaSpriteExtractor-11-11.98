@@ -32,7 +32,7 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.tibiaExtractor.Form1
+            Me.MainForm = Global.TibiaExtractor.Form1
         End Sub
     End Class
 End Namespace

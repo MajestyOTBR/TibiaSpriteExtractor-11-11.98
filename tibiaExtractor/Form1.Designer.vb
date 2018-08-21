@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,230 +20,162 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExtractingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExtractSpritesheetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SliceSpritesheatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BakeASprToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BakeADatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.MenuStrip1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'MenuStrip1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 24)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(405, 20)
-        Me.TextBox1.TabIndex = 0
-        Me.TextBox1.Text = "asset path for collecting dat and lzma files from"
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.ExtractingToolStripMenuItem, Me.CookingToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(605, 24)
+        Me.MenuStrip1.TabIndex = 0
+        Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'TextBox2
+        'OptionsToolStripMenuItem
         '
-        Me.TextBox2.Location = New System.Drawing.Point(12, 62)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(405, 20)
-        Me.TextBox2.TabIndex = 1
-        Me.TextBox2.Text = "do not erase path after u extracted! this path is needed when creating the spr fi" &
-    "le"
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem})
+        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.OptionsToolStripMenuItem.Text = "Options"
         '
-        'Button1
+        'SettingsToolStripMenuItem
         '
-        Me.Button1.Location = New System.Drawing.Point(423, 24)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Assetfolder"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.SettingsToolStripMenuItem.Text = "Settings"
         '
-        'Button2
+        'ExtractingToolStripMenuItem
         '
-        Me.Button2.Location = New System.Drawing.Point(423, 62)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(103, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Extractfolder"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.ExtractingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExtractSpritesheetToolStripMenuItem, Me.SliceSpritesheatToolStripMenuItem})
+        Me.ExtractingToolStripMenuItem.Name = "ExtractingToolStripMenuItem"
+        Me.ExtractingToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
+        Me.ExtractingToolStripMenuItem.Text = "Extracting"
         '
-        'ProgressBar1
+        'ExtractSpritesheetToolStripMenuItem
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 475)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(495, 23)
-        Me.ProgressBar1.TabIndex = 4
+        Me.ExtractSpritesheetToolStripMenuItem.Name = "ExtractSpritesheetToolStripMenuItem"
+        Me.ExtractSpritesheetToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.ExtractSpritesheetToolStripMenuItem.Text = "Extract spritesheet"
+        '
+        'SliceSpritesheatToolStripMenuItem
+        '
+        Me.SliceSpritesheatToolStripMenuItem.Name = "SliceSpritesheatToolStripMenuItem"
+        Me.SliceSpritesheatToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.SliceSpritesheatToolStripMenuItem.Text = "Slice spritesheat"
+        '
+        'CookingToolStripMenuItem
+        '
+        Me.CookingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BakeASprToolStripMenuItem, Me.BakeADatToolStripMenuItem})
+        Me.CookingToolStripMenuItem.Name = "CookingToolStripMenuItem"
+        Me.CookingToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
+        Me.CookingToolStripMenuItem.Text = "Cooking"
+        '
+        'BakeASprToolStripMenuItem
+        '
+        Me.BakeASprToolStripMenuItem.Name = "BakeASprToolStripMenuItem"
+        Me.BakeASprToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BakeASprToolStripMenuItem.Text = "Bake a spr"
+        '
+        'BakeADatToolStripMenuItem
+        '
+        Me.BakeADatToolStripMenuItem.Name = "BakeADatToolStripMenuItem"
+        Me.BakeADatToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BakeADatToolStripMenuItem.Text = "Bake a dat"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 459)
+        Me.Label1.Location = New System.Drawing.Point(13, 260)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(38, 13)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Ready"
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(423, 98)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(103, 23)
-        Me.Button3.TabIndex = 6
-        Me.Button3.Text = "Extract sheets"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(509, 485)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(15, 13)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "%"
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(423, 367)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(103, 23)
-        Me.Button4.TabIndex = 8
-        Me.Button4.Text = "Create spr"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 120)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(292, 39)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Select tibia version to create/load the sprite for." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "so if u want to downgrade sp" &
-    "r or upgrade that means," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " u need to select another tibia version before creatin" &
-    "g the file"
+        Me.Label1.Size = New System.Drawing.Size(37, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Status"
         '
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.HorizontalScrollbar = True
-        Me.ListBox1.Location = New System.Drawing.Point(12, 162)
+        Me.ListBox1.Location = New System.Drawing.Point(14, 16)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(405, 147)
-        Me.ListBox1.TabIndex = 13
+        Me.ListBox1.Size = New System.Drawing.Size(196, 121)
+        Me.ListBox1.TabIndex = 1
         '
-        'Label4
+        'Panel1
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 322)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(100, 13)
-        Me.Label4.TabIndex = 14
-        Me.Label4.Text = "select spr file to edit"
+        Me.Panel1.Controls.Add(Me.ListBox2)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.ListBox1)
+        Me.Panel1.Location = New System.Drawing.Point(16, 28)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(577, 245)
+        Me.Panel1.TabIndex = 2
+        Me.Panel1.Visible = False
         '
-        'TextBox3
+        'Button1
         '
-        Me.TextBox3.Location = New System.Drawing.Point(12, 341)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(405, 20)
-        Me.TextBox3.TabIndex = 15
+        Me.Button1.Location = New System.Drawing.Point(14, 209)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Create Spr"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button5
+        'ListBox2
         '
-        Me.Button5.Location = New System.Drawing.Point(423, 338)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(103, 23)
-        Me.Button5.TabIndex = 16
-        Me.Button5.Text = "select spr"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(423, 398)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(103, 23)
-        Me.Button6.TabIndex = 17
-        Me.Button6.Text = "LoadDat"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 398)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(24, 13)
-        Me.Label5.TabIndex = 18
-        Me.Label5.Text = "Dat"
-        '
-        'Button7
-        '
-        Me.Button7.Enabled = False
-        Me.Button7.Location = New System.Drawing.Point(423, 427)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(101, 23)
-        Me.Button7.TabIndex = 19
-        Me.Button7.Text = "LoadOld Dat"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.Location = New System.Drawing.Point(14, 144)
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.Size = New System.Drawing.Size(196, 56)
+        Me.ListBox2.TabIndex = 3
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(535, 510)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Button3)
+        Me.ClientSize = New System.Drawing.Size(605, 285)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ProgressBar1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
-        Me.Text = "Tibia11xx Extract"
+        Me.Text = "TibiaExtractor"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents OptionsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExtractingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExtractSpritesheetToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SliceSpritesheatToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button3 As Button
-    Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Label3 As Label
+    Friend WithEvents CookingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BakeASprToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BakeADatToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Button5 As Button
-    Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Button7 As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Button1 As Button
+    Friend WithEvents ListBox2 As ListBox
 End Class

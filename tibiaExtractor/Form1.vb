@@ -5,159 +5,146 @@ Imports System.Xml
 Imports OpenTibia
 
 Public Class Form1
-    Public Shared spritelist As New List(Of Image)
-    Public Shared counter As Integer
+    Dim thread As Thread
+    Dim imlist As ImageList
     Dim xmldoc As XmlDocument
-    Public Shared selectedclient As Integer
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        PopulateListbox()
+    Dim multiArray As List(Of ListitemObject) = New List(Of ListitemObject)
+    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
+        settings.Show()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If FolderBrowserDialog1.ShowDialog = DialogResult.OK Then
-            TextBox2.Text = FolderBrowserDialog1.SelectedPath
-        End If
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If FolderBrowserDialog1.ShowDialog = DialogResult.OK Then
-            TextBox1.Text = FolderBrowserDialog1.SelectedPath
-        End If
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
-        Dim work = New worker(ProgressBar1, TextBox1, TextBox2, Label1, Label2)
-        Dim thread As New Thread(AddressOf work.Start)
+    Private Sub ExtractSpritesheetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExtractSpritesheetToolStripMenuItem.Click
+        Dim work = New Worker(Label1)
+        thread = New Thread(AddressOf work.Start)
         thread.Start()
+        Label1.Text = "Done"
+    End Sub
 
+    Private Sub SliceSpritesheatToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SliceSpritesheatToolStripMenuItem.Click
+        Dim work As Worker = New Worker(Label1)
+        Dim tileSize As Size = New Size(64, 64)
+        Dim Offset As Point = New Point(0, 0)
+        Dim Space As Size = New Size(0, 0)
+        imlist = New ImageList()
+        Dim filelist As String() = Directory.GetFiles(My.MySettings.Default.ExtractFolder + "\", "*.bmp")
+        For i As Integer = 0 To filelist.Length - 1
+            Dim spritesheet As Image = Image.FromFile(filelist(i))
+            imlist = work.GenerateTileSetImageList(spritesheet, tileSize, Offset, Space)
+        Next
+        imlist.ImageSize = New Size(32, 32)
+        For i As Integer = 0 To imlist.Images.Count - 1
+
+            imlist.Images(i).Save(My.MySettings.Default.ExtractFolder + "\" + i.ToString + "_sprite" + ".png")
+
+        Next
+        Label1.Text = "Done"
     End Sub
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If IsNothing(False) Then
+            thread.Abort()
+        End If
 
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        If IsNothing(ListBox1.SelectedItem) Then
-            MessageBox.Show("select a tibia version")
-        End If
-        Label2.Text = "Creating a spr file from extracted sheets"
-        If TextBox2.Text = Nothing Then
-            MessageBox.Show("check that extract folder contains sheets(bmp) and extract textbox is not empty!")
-        End If
-        Dim filelist As String() = Directory.GetFiles(TextBox2.Text, "*.bmp")
-        If filelist.Count() = 0 Then
-            MessageBox.Show("theres no files in list! navigate to correct extraction folder")
-        End If
-        Try
-            For i As Integer = 0 To filelist.Length - 1
-                Dim finfo As FileInfo = New FileInfo(filelist(i))
-                Dim t As Tile = New Tile(finfo.Name, TextBox2.Text)
-                spritelist.Add(t.CreateImage())
-                counter += 1
-                ProgressBar1.Value = counter * 100 / filelist.Length
-                ProgressBar1.Update()
-                Label2.Text = ProgressBar1.Value
-            Next
-            Createsprfile()
 
-        Catch ex As Exception
-            Label1.Text = ex.Message
-        End Try
-
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
 
     End Sub
 
-    Private Sub Createsprfile()
-        If selectedclient = Nothing Then
-            MessageBox.Show("you need to select a client both for loading and saving")
-        End If
-
-        Dim Nodes As XmlNode = xmldoc.SelectSingleNode("/clients")
-
-        Dim clientname As String = Nodes.ChildNodes(selectedclient).Attributes("description").Value
-        Dim version As UShort = CUShort(Nodes.ChildNodes(selectedclient).Attributes("version").Value)
-        Dim otb As UInteger = CUInt(Nodes.ChildNodes(selectedclient).Attributes("otbversion").Value)
-        Dim spri As UInteger = CUInt("&H" + Nodes.ChildNodes(selectedclient).Attributes("sprsignature").Value)
-        Dim dat As UInteger = CUInt("&H" + Nodes.ChildNodes(selectedclient).Attributes("datsignature").Value)
-
-        If TextBox3.Text = Nothing Then
-            MessageBox.Show("you need to select a spr file")
-        End If
-        Dim versionstorage As OpenTibia.Core.VersionStorage = New Core.VersionStorage()
-        versionstorage.Load(CurDir() + "\clients.xml")
-
-        Dim ver As Core.Version = New OpenTibia.Core.Version(version, clientname, dat, spri, otb)
-
-        Dim osprite As OpenTibia.Client.Sprites.SpriteStorage = Client.Sprites.SpriteStorage.Load(TextBox3.Text, ver)
-        osprite.Version = ver
-
-        For i As Integer = 0 To spritelist.Count - 1
-            Dim spr As Client.Sprites.Sprite = New Client.Sprites.Sprite()
-            spr.SetBitmap(spritelist(i))
-            osprite.AddSprite(spr)
-        Next
-
-        osprite.Save(TextBox2.Text + "\Tibia.spr", ver)
-
-
+    Private Sub BakeASprToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BakeASprToolStripMenuItem.Click
+        Panel1.Visible = True
+        loadList()
     End Sub
 
-    Private Sub PopulateListbox()
-
+    Private Sub loadList()
         xmldoc = New XmlDocument()
         Dim fs As New FileStream(CurDir() + "\clients.xml", FileMode.Open, FileAccess.Read)
         xmldoc.Load(fs)
         Dim Nodes As XmlNode = xmldoc.SelectSingleNode("/clients")
         For i As Integer = 0 To Nodes.ChildNodes.Count - 1
             Dim a As String = Nodes.ChildNodes(i).Attributes("description").Value
+            Dim lob As ListitemObject = New ListitemObject()
+
+            lob.description = Nodes.ChildNodes(i).Attributes("description").Value
+            lob.version = CUShort(Nodes.ChildNodes(i).Attributes("version").Value)
+            lob.otbversion = CUInt("&H" + Nodes.ChildNodes(i).Attributes("otbversion").Value)
+            lob.sprsignature = CUInt("&H" + Nodes.ChildNodes(i).Attributes("sprsignature").Value)
+            lob.datsignature = CUInt("&H" + Nodes.ChildNodes(i).Attributes("datsignature").Value)
+            multiArray.Add(lob)
+
             ListBox1.Items.Add(a)
         Next
-
     End Sub
 
-    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
-        selectedclient = ListBox1.SelectedIndex
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim filelist As String() = Directory.GetFiles(My.MySettings.Default.ExtractFolder + "\", "*.png")
+
+        Dim reader As New System.IO.BinaryReader(System.IO.File.OpenRead(My.MySettings.Default.Datfile))
+        Dim DatVersion = reader.ReadUInt32()
+        Dim DatVersionHex = Hex(DatVersion)
+
+        Dim versionstorage As OpenTibia.Core.VersionStorage = New Core.VersionStorage()
+        versionstorage.Load(CurDir() + "\clients.xml")
+
+        Dim clientname As String
+        Dim version As UShort
+        Dim otb As UInteger
+        Dim spri As UInteger
+        Dim dat As UInteger
+
+        Dim selectedValues As List(Of ListitemObject)
+            selectedValues = multiArray.FindAll(Function(p) p.datsignature = CUInt("&H" + DatVersionHex))
+            If selectedValues.Count > 0 Then
+
+                MessageBox.Show("client " + selectedValues(0).description + " selected")
+                clientname = selectedValues(0).description
+                version = selectedValues(0).version
+                otb = selectedValues(0).otbversion
+                spri = selectedValues(0).sprsignature
+                dat = selectedValues(0).datsignature
+
+            End If
+
+        'Dim selectedValues1 As List(Of ListitemObject)
+        '    selectedValues1 = multiArray.FindAll(Function(p) p.description = multiArray(ListBox1.SelectedIndex).description)
+        '    If selectedValues1.Count > 0 Then
+
+        '        MessageBox.Show("client " + selectedValues1(0).description + " selected")
+        '        clientname = selectedValues1(0).description
+        '        version = selectedValues1(0).version
+        '        otb = selectedValues1(0).otbversion
+        '        spri = selectedValues1(0).sprsignature
+        '        dat = selectedValues1(0).datsignature
+
+        '    End If
+
+        Dim ver As Core.Version = New OpenTibia.Core.Version(version, clientname, dat, spri, otb)
+        Dim osprite As OpenTibia.Client.Sprites.SpriteStorage = Client.Sprites.SpriteStorage.Load(My.MySettings.Default.TibiaFolder + "\Tibia.spr", ver)
+        Dim odat As OpenTibia.Client.Things.ThingTypeStorage = Client.Things.ThingTypeStorage.Load(My.MySettings.Default.TibiaFolder + "\Tibia.dat", ver)
+        osprite.Version = ver
+
+        For i As Integer = 0 To filelist.Count - 1
+
+            Dim spr As Client.Sprites.Sprite = New Client.Sprites.Sprite()
+            Dim datitem As Client.Things.ThingType = New Client.Things.ThingType(Client.Things.ThingCategory.Item)
+
+            Dim im = Image.FromFile(filelist(i))
+
+            spr.SetBitmap(im)
+
+            datitem.ID = osprite.Count + 1 'odat.ItemCount + 1
+            spr.ID = osprite.Count + 1
+
+            ListBox2.Items.Add("created sprite with Id " + spr.ID.ToString + " and Item with id " + datitem.ID.ToString)
+            osprite.AddSprite(spr)
+            'odat.AddThing(datitem)
+
+        Next
+
+        osprite.Save(My.MySettings.Default.ExtractFolder + "\Tibia.spr", ver)
+        odat.Save(My.MySettings.Default.ExtractFolder + "\Tibia.dat", ver)
+        Label1.Text = "Done"
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        If IsNothing(ListBox1.SelectedItem) Then
-            MessageBox.Show("select a tibia version")
-        End If
-
-        If OpenFileDialog1.ShowDialog = DialogResult.OK Then
-            TextBox3.Text = OpenFileDialog1.FileName
-        End If
-    End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Try
-            Dim db As DatFile
-            Dim filelist As String() = Directory.GetFiles(TextBox1.Text, "*.dat")
-            For i As Integer = 0 To filelist.Length - 1
-                Dim finfo As FileInfo = New FileInfo(filelist(i))
-                If filelist(i).Contains("appearances-") Then
-                    Dim dbs As Datfiles = New Datfiles()
-                    db = dbs.Readfile(TextBox1.Text + "\" + finfo.Name)
-                End If
-
-            Next
-
-            Dim ou = "we have " + db.Outfits.Count.ToString + " outfits," + vbNewLine
-            Dim ef = "we have " + db.Effects.Count.ToString + " effects," + vbNewLine
-            Dim ob = "we have " + db.Objects.Count.ToString + " objects," + vbNewLine
-            Dim mi = "we have " + db.Missiles.Count.ToString + " missiles"
-
-            Label5.Text = ou + ef + ob + mi
-        Catch ex As Exception
-            MessageBox.Show(ex.StackTrace)
-            Label1.Text = ex.Message
-        End Try
-
-    End Sub
-
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Dim od As OldDatfile2 = New OldDatfile2()
-        od.Old_load("Tibia.dat")
-    End Sub
 End Class

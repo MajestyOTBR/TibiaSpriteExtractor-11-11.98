@@ -1,26 +1,22 @@
 ﻿Imports System
-Imports System.ComponentModel
-Imports System.Diagnostics
-Imports System.Drawing
-Imports System.Drawing.Imaging
 Imports System.IO
 Imports SevenZip.Compression.LZMA
+
+Public Structure ListitemObject
+    Dim version As UShort
+    Dim description As String
+    Dim otbversion As UInteger
+    Dim datsignature As UInteger
+    Dim sprsignature As UInteger
+End Structure
+
 Public Class Worker
     Public Shared counter As Integer
-    Dim progressbar As ProgressBar
     Dim filelist As String()
     Dim status As Label
-    Dim pro As Label
-    Dim assetfolder As TextBox
-    Dim extractfolder As TextBox
+    Public Sub New(stat As Label)
 
-
-    Public Sub New(prog As ProgressBar, asfolder As TextBox, extr As TextBox, stat As Label, proc As Label)
-        progressbar = prog
         status = stat
-        assetfolder = asfolder
-        extractfolder = extr
-        pro = proc
 
     End Sub
 
@@ -63,7 +59,7 @@ Public Class Worker
             spriteBuffer.Position = 0
 
             Try
-                SaveStreamToFile(spriteBuffer, extractfolder.Text + "\" + finfo.Name & ".bmp")
+                SaveStreamToFile(spriteBuffer, My.MySettings.Default.ExtractFolder + "\" + finfo.Name & ".bmp")
             Catch ex As Exception
                 status.Text = ex.Message + " :parsing"
             End Try
@@ -72,9 +68,9 @@ Public Class Worker
 
     Public Sub Start()
         Try
-            filelist = Directory.GetFiles(assetfolder.Text, "*.lzma")
+            filelist = Directory.GetFiles(My.MySettings.Default.Assetfolder + "\", "*.lzma")
             If filelist.Count() = 0 Then
-                Throw New Exception("theres no files in list! navigate to correct asset folder")
+                MessageBox.Show("theres no files in list! navigate to correct asset folder")
             End If
 
             For i As Integer = 0 To filelist.Length - 1
@@ -84,9 +80,8 @@ Public Class Worker
                     Extract(filelist(i))
                 End If
                 counter += 1
-                progressbar.Value = counter * 100 / filelist.Length
-                progressbar.Update()
-                pro.Text = progressbar.Value
+
+                status.Text = counter * 100 / filelist.Length
             Next
 
         Catch ex As Exception
@@ -94,5 +89,51 @@ Public Class Worker
         End Try
 
     End Sub
+
+    Public Function GenerateTileSetImageList(ByVal tileSetImage As Image, ByVal tileSize As Size, ByVal offset As Point, ByVal space As Size) As ImageList
+        Try
+            Dim Tiles As New ImageList
+            Tiles.ImageSize = tileSize
+
+            Dim width, height As Single
+            width = tileSetImage.PhysicalDimension.Width
+            height = tileSetImage.PhysicalDimension.Height
+
+            If (tileSize.Width > 0) And (tileSize.Height > 0) Then
+
+                If (width >= tileSize.Width) And (height >= tileSize.Height) Then
+                    Dim tile As Image
+                    Dim rows, columns As Integer
+
+                    rows = height \ CInt(tileSize.Height) 'integer division
+                    columns = width \ CInt(tileSize.Width) 'integer division
+
+                    If (rows * columns) > 64 Then
+                        Return Nothing
+                    End If
+
+                    For j As Integer = 0 To (rows - 1)
+                        For i As Integer = 0 To (columns - 1)
+                            tile = New Bitmap(tileSize.Width, tileSize.Height, tileSetImage.PixelFormat)
+                            Dim g As Graphics = Graphics.FromImage(tile)
+                            Dim sourceRect As New Rectangle(offset.X + (i * tileSize.Width) + (i * space.Width), offset.Y + (j * tileSize.Height) + (j * space.Width), tileSize.Width, tileSize.Height)
+                            g.DrawImage(tileSetImage, New Rectangle(0, 0, tileSize.Width, tileSize.Height), sourceRect, GraphicsUnit.Pixel)
+                            Tiles.Images.Add(i + 1, tile)
+                            g.Dispose()
+                        Next
+                    Next
+
+                End If
+            End If
+
+            Return Tiles
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+
+        Return Nothing
+
+    End Function
 
 End Class

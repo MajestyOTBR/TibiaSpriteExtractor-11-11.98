@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("tibiaExtractor")>
+<Assembly: AssemblyTitle("TibiaExtractor")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("tibiaExtractor")>
+<Assembly: AssemblyProduct("TibiaExtractor")>
 <Assembly: AssemblyCopyright("Copyright ©  2018")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("923a0d95-850e-42f0-b16d-d2f8d5f12a0f")>
+<Assembly: Guid("dc086984-6b4e-4094-a65b-10b3c2135f32")>
 
 ' Version information for an assembly consists of the following four values:
 '

@@ -1,7 +1,24 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" UseMySettingsClassName="true">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="Assetfolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\tess\AppData\Local\Tibia\packages\Tibia\assets</Value>
+    </Setting>
+    <Setting Name="TibiaFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\tess\Desktop\2017 (x64)\Tibia10_77</Value>
+    </Setting>
+    <Setting Name="ExtractFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\tess\Documents\Visual Studio 2017\Projects\TibiaExtractor\TibiaExtractor\bin\Release\extracted</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Datfile" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Spritefile" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
 </SettingsFile>
