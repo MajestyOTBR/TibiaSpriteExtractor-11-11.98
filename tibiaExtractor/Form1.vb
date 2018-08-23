@@ -57,10 +57,10 @@ Public Class Form1
 
     Private Sub BakeASprToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BakeASprToolStripMenuItem.Click
         Panel1.Visible = True
-        loadList()
+        LoadList()
     End Sub
 
-    Private Sub loadList()
+    Private Sub LoadList()
         xmldoc = New XmlDocument()
         Dim fs As New FileStream(CurDir() + "\clients.xml", FileMode.Open, FileAccess.Read)
         xmldoc.Load(fs)
@@ -81,134 +81,23 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim filelist As String() = Directory.GetFiles(My.MySettings.Default.ExtractFolder + "\", "*.png")
+        Dim loads As Loader = New Loader()
 
-        Dim reader As New System.IO.BinaryReader(System.IO.File.OpenRead(My.MySettings.Default.Datfile))
-        Dim DatVersion = reader.ReadUInt32()
-        Dim DatVersionHex = Hex(DatVersion)
-        reader.Close()
-        reader.Dispose()
+        'loads.Load(My.MySettings.Default.TibiaFolder, Client.ClientFeatures.None)
+        loads.LoadOc(My.MySettings.Default.TibiaFolder)
+        Dim thing = oc.Things.GetItem(100).Clone()
+        'Dim thing = New Client.Things.ThingType(100, Client.Things.ThingCategory.Item)
+        MessageBox.Show(thing.ID.ToString())
 
-        Dim clientname As String = Nothing
-        Dim version As UShort
-        Dim otb As UInteger
-        Dim spri As UInteger
-        Dim dat As UInteger
 
-        Dim selectedValues As List(Of ListitemObject)
-        selectedValues = multiArray.FindAll(Function(p) p.datsignature = CUInt("&H" + DatVersionHex))
-        If selectedValues.Count > 0 Then
 
-            MessageBox.Show(selectedValues(0).description + " selected")
-            clientname = selectedValues(0).description
-            version = selectedValues(0).version
-            otb = selectedValues(0).otbversion
-            spri = selectedValues(0).sprsignature
-            dat = selectedValues(0).datsignature
+        'Dim spr As Client.Sprites.Sprite = New Client.Sprites.Sprite(0, False)
 
-        End If
-        Dim ver As Core.Version = New OpenTibia.Core.Version(version, clientname, dat, spri, otb)
-        Dim osprite As OpenTibia.Client.Sprites.SpriteStorage = Client.Sprites.SpriteStorage.Load(My.MySettings.Default.TibiaFolder + "\Tibia.spr", ver)
-        osprite.Version = ver
-        Dim spr As Client.Sprites.Sprite = New Client.Sprites.Sprite()
+        'If loads.OcAdd(thing, spr) = True Then
+        '    MessageBox.Show("dat and sprite added")
+        'End If
 
-        For i As Integer = 0 To filelist.Count - 1
+        'loads.SaveOc(My.MySettings.Default.ExtractFolder)
 
-            Dim im = Image.FromFile(filelist(i))
-
-            spr.SetBitmap(im)
-            spr.ID = osprite.Count + 1
-            osprite.AddSprite(spr)
-
-            ListBox2.Items.Add("created sprite with Id " + spr.ID.ToString)
-        Next
-        osprite.Save(My.MySettings.Default.ExtractFolder + "\Tibia.spr", ver)
-        Label1.Text = "Done"
-    End Sub
-
-    Private Sub BakeADatToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BakeADatToolStripMenuItem.Click
-        Panel1.Visible = True
-        loadList()
-
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim reader As New System.IO.BinaryReader(System.IO.File.OpenRead(My.MySettings.Default.Datfile))
-        Dim DatVersion = reader.ReadUInt32()
-        Dim DatVersionHex = Hex(DatVersion)
-        reader.Close()
-        reader.Dispose()
-
-        Dim clientname As String = Nothing
-        Dim version As UShort
-        Dim otb As UInteger
-        Dim spri As UInteger
-        Dim dat As UInteger
-
-        Dim selectedValues As List(Of ListitemObject)
-        selectedValues = multiArray.FindAll(Function(p) p.datsignature = CUInt("&H" + DatVersionHex))
-        If selectedValues.Count > 0 Then
-
-            MessageBox.Show(selectedValues(0).description + " selected")
-            clientname = selectedValues(0).description
-            version = selectedValues(0).version
-            otb = selectedValues(0).otbversion
-            spri = selectedValues(0).sprsignature
-            dat = selectedValues(0).datsignature
-        End If
-
-        Dim ver As Core.Version = New OpenTibia.Core.Version(version, clientname, dat, spri, otb)
-
-        oc = New Client.ClientImpl()
-        oc.Load(My.MySettings.Default.Datfile, My.MySettings.Default.Spritefile, ver)
-        'Dim thingsto = oc.Things.GetThing(100, Client.Things.ThingCategory.Outfit)
-        Dim thingsto = oc.Things.GetItem(100).Clone()
-
-        thingsto.ID = 6000
-        Dim spr = New Client.Sprites.Sprite()
-        spr.ID = 6000
-        Dim im As Image = Image.FromFile(My.MySettings.Default.ExtractFolder + "\0_sprite.png")
-        spr.SetBitmap(im)
-
-        oc.Sprites.AddSprite(spr)
-        oc.Things.AddThing(thingsto)
-
-        oc.Save(CurDir() + "\extracted\Tibia.dat", CurDir() + "\extracted\Tibia.spr", ver)
-        MessageBox.Show("saved")
-
-    End Sub
-    Private Sub Second() 'test trying out stuff what works,apperently both throws an missing flags when loading up dat in objeectbuilder
-        Dim reader As New System.IO.BinaryReader(System.IO.File.OpenRead(My.MySettings.Default.Datfile))
-        Dim DatVersion = reader.ReadUInt32()
-        Dim DatVersionHex = Hex(DatVersion)
-        reader.Close()
-        reader.Dispose()
-
-        Dim clientname As String = Nothing
-        Dim version As UShort
-        Dim otb As UInteger
-        Dim spri As UInteger
-        Dim dat As UInteger
-
-        Dim selectedValues As List(Of ListitemObject)
-        selectedValues = multiArray.FindAll(Function(p) p.datsignature = CUInt("&H" + DatVersionHex))
-        If selectedValues.Count > 0 Then
-
-            MessageBox.Show(selectedValues(0).description + " selected")
-            clientname = selectedValues(0).description
-            version = selectedValues(0).version
-            otb = selectedValues(0).otbversion
-            spri = selectedValues(0).sprsignature
-            dat = selectedValues(0).datsignature
-        End If
-
-        Dim ver As Core.Version = New OpenTibia.Core.Version(version, clientname, dat, spri, otb)
-        Dim thingstore As OpenTibia.Client.Things.ThingTypeStorage = Client.Things.ThingTypeStorage.Load(My.MySettings.Default.TibiaFolder + "\Tibia.dat", ver)
-        thingstore.Version = ver
-        Dim thingsto1 = thingstore.GetItem(100)
-        thingsto1.ID = 6000
-        thingstore.AddThing(thingsto1)
-        thingstore.Save(CurDir() + "\extracted\Tibia1.dat", ver)
-        MessageBox.Show("saved")
     End Sub
 End Class

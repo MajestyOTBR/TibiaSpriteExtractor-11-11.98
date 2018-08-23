@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -35,8 +35,6 @@ Partial Class Form1
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.BakeADatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -84,7 +82,7 @@ Partial Class Form1
         '
         'CookingToolStripMenuItem
         '
-        Me.CookingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BakeASprToolStripMenuItem, Me.BakeADatToolStripMenuItem})
+        Me.CookingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BakeASprToolStripMenuItem})
         Me.CookingToolStripMenuItem.Name = "CookingToolStripMenuItem"
         Me.CookingToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
         Me.CookingToolStripMenuItem.Text = "Cooking"
@@ -92,8 +90,8 @@ Partial Class Form1
         'BakeASprToolStripMenuItem
         '
         Me.BakeASprToolStripMenuItem.Name = "BakeASprToolStripMenuItem"
-        Me.BakeASprToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
-        Me.BakeASprToolStripMenuItem.Text = "Bake a spr"
+        Me.BakeASprToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BakeASprToolStripMenuItem.Text = "Bake a spr/dat"
         '
         'Label1
         '
@@ -114,7 +112,6 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.ListBox2)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.ListBox1)
@@ -139,23 +136,8 @@ Partial Class Form1
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Create Spr"
+        Me.Button1.Text = "Create"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'BakeADatToolStripMenuItem
-        '
-        Me.BakeADatToolStripMenuItem.Name = "BakeADatToolStripMenuItem"
-        Me.BakeADatToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.BakeADatToolStripMenuItem.Text = "Bake a dat"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(96, 209)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Create Dat"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -189,6 +171,4 @@ Partial Class Form1
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
     Friend WithEvents ListBox2 As ListBox
-    Friend WithEvents BakeADatToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Button2 As Button
 End Class
