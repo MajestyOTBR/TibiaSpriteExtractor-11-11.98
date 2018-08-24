@@ -1,8 +1,10 @@
 ﻿Imports System.ComponentModel
 Imports System.IO
+Imports System.Reflection
 Imports System.Threading
 Imports System.Xml
 Imports OpenTibia
+Imports ProtoBuf
 
 Public Class Form1
     Dim oc As Client.IClient
@@ -10,6 +12,7 @@ Public Class Form1
     Dim imlist As ImageList
     Dim xmldoc As XmlDocument
     Dim multiArray As List(Of ListitemObject) = New List(Of ListitemObject)
+    Dim thread1 As Thread
 
     Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
         settings.Show()
@@ -99,5 +102,110 @@ Public Class Form1
 
         'loads.SaveOc(My.MySettings.Default.ExtractFolder)
 
+    End Sub
+
+    Private Sub reflectProp(attri As Attributes, parentnode As TreeNode)
+        'attri.GetType().GetProperties()
+        If attri.GetType().GetProperties.Length > 0 Then
+            For Each prop In attri.GetType().GetProperties
+                Dim trre = New TreeNode(prop.Name)
+                If (prop.PropertyType().ToString() = "System.Boolean") Then
+                    trre.Nodes.Add("Boolean")
+                    trre.Nodes.Add(prop.GetValue(attri).ToString)
+
+                ElseIf (prop.PropertyType().ToString() = "System.String") Then
+                    trre.Nodes.Add("String")
+                    trre.Nodes.Add(prop.GetValue(attri).ToString)
+
+                ElseIf (prop.PropertyType().ToString() = "System.Integer") Then
+                    trre.Nodes.Add("Integer")
+                    trre.Nodes.Add(prop.GetValue(attri).ToString)
+
+                ElseIf (prop.PropertyType().ToString() = "System.UInt32") Then
+                    trre.Nodes.Add("Uint32")
+                    trre.Nodes.Add(prop.GetValue(attri).ToString)
+
+                ElseIf (prop.PropertyType().ToString() = "System.Array") Then
+                    trre.Nodes.Add("Array")
+                    trre.Nodes.Add(prop.GetValue(attri).ToString)
+
+                ElseIf (prop.PropertyType().ToString() = "System.Collections.ArrayList") Then
+                    trre.Nodes.Add("List")
+                    trre.Nodes.Add(prop.GetValue(attri).ToString)
+
+                Else
+                    trre.Nodes.Add(prop.PropertyType().ToString())
+                End If
+
+                parentnode.Nodes.Add(trre)
+            Next
+
+        End If
+
+    End Sub
+
+    Private Sub Parse11()
+        Dim counter As Integer
+        Dim datafile As Datfiles = New Datfiles()
+        Dim datf = datafile.Readfile(My.MySettings.Default.Assetfolder + "\appearances-723b878ed31feb3bb5cd4a31bb314dffdf43fa5532dad1655254f0b426142df4.dat")
+
+        Dim outfit As TreeNode = New TreeNode()
+        outfit.Text = "Outfits"
+        For i As Integer = 0 To datf.Outfits.Count() - 1
+            counter += 1
+            Dim childnode0 As TreeNode = New TreeNode()
+            childnode0.Text = i.ToString()
+            Dim childnode As TreeNode = New TreeNode()
+            childnode.Text = " client Id=" + datf.Outfits(i).clientID.ToString()
+            Dim childnode1 As TreeNode = New TreeNode()
+            childnode1.Text = " Attributes=" + datf.Outfits(i).Attributes.ToString()
+            reflectProp(datf.Outfits(i).Attributes, childnode1)
+
+            Dim childnode2 As TreeNode = New TreeNode()
+            childnode2.Text = " Frameroups count=" + datf.Outfits(i).frameGroups.Count().ToString()
+            childnode0.Nodes.Add(childnode)
+            childnode0.Nodes.Add(childnode1)
+            childnode0.Nodes.Add(childnode2)
+            outfit.Nodes.Add(childnode0)
+            Label1.Text = counter * 100 / datf.Outfits.Count()
+        Next
+        Label1.Text = 0
+        counter = 0
+        Dim objects As TreeNode = New TreeNode()
+        objects.Text = "Objects"
+        For i As Integer = 0 To datf.Objects.Count() - 1
+            counter += 1
+            Dim childnode0 As TreeNode = New TreeNode()
+            childnode0.Text = i.ToString()
+            Dim childnode As TreeNode = New TreeNode()
+            childnode.Text = " client Id=" + datf.Objects(i).clientID.ToString()
+            Dim childnode1 As TreeNode = New TreeNode()
+            childnode1.Text = " Attributes=" + datf.Objects(i).Attributes.ToString()
+            reflectProp(datf.Objects(i).Attributes, childnode1)
+
+            Dim childnode2 As TreeNode = New TreeNode()
+            childnode2.Text = " Frameroups count=" + datf.Objects(i).frameGroups.Count().ToString()
+            childnode0.Nodes.Add(childnode)
+            childnode0.Nodes.Add(childnode1)
+            childnode0.Nodes.Add(childnode2)
+            objects.Nodes.Add(childnode0)
+            Label1.Text = counter * 100 / datf.Objects.Count()
+        Next
+
+
+        Dim root As TreeNode = New TreeNode()
+        root.Text = "appearances.dat"
+        root.Nodes.Add(objects)
+        root.Nodes.Add(outfit)
+
+
+        TreeView1.Nodes.Add(root)
+
+    End Sub
+
+    Private Sub ParseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ParseToolStripMenuItem.Click
+        'Dim thread1 = New Thread(AddressOf Parse11)
+        'thread1.Start()
+        Parse11()
     End Sub
 End Class

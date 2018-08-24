@@ -35,13 +35,16 @@ Partial Class Form1
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Tibia11ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ParseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.ExtractingToolStripMenuItem, Me.CookingToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.ExtractingToolStripMenuItem, Me.CookingToolStripMenuItem, Me.Tibia11ToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(605, 24)
@@ -107,7 +110,7 @@ Partial Class Form1
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Location = New System.Drawing.Point(14, 16)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(196, 121)
+        Me.ListBox1.Size = New System.Drawing.Size(196, 95)
         Me.ListBox1.TabIndex = 1
         '
         'Panel1
@@ -117,14 +120,14 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.ListBox1)
         Me.Panel1.Location = New System.Drawing.Point(16, 28)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(577, 245)
+        Me.Panel1.Size = New System.Drawing.Size(256, 217)
         Me.Panel1.TabIndex = 2
         Me.Panel1.Visible = False
         '
         'ListBox2
         '
         Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(14, 144)
+        Me.ListBox2.Location = New System.Drawing.Point(14, 117)
         Me.ListBox2.Name = "ListBox2"
         Me.ListBox2.ScrollAlwaysVisible = True
         Me.ListBox2.Size = New System.Drawing.Size(196, 56)
@@ -132,18 +135,39 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(14, 209)
+        Me.Button1.Location = New System.Drawing.Point(14, 179)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "Create"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Tibia11ToolStripMenuItem
+        '
+        Me.Tibia11ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ParseToolStripMenuItem})
+        Me.Tibia11ToolStripMenuItem.Name = "Tibia11ToolStripMenuItem"
+        Me.Tibia11ToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.Tibia11ToolStripMenuItem.Text = "Tibia11"
+        '
+        'ParseToolStripMenuItem
+        '
+        Me.ParseToolStripMenuItem.Name = "ParseToolStripMenuItem"
+        Me.ParseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ParseToolStripMenuItem.Text = "Parse"
+        '
+        'TreeView1
+        '
+        Me.TreeView1.Location = New System.Drawing.Point(289, 28)
+        Me.TreeView1.Name = "TreeView1"
+        Me.TreeView1.Size = New System.Drawing.Size(304, 200)
+        Me.TreeView1.TabIndex = 3
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(605, 285)
+        Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -171,4 +195,7 @@ Partial Class Form1
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
     Friend WithEvents ListBox2 As ListBox
+    Friend WithEvents Tibia11ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ParseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TreeView1 As TreeView
 End Class
